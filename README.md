@@ -1,5 +1,23 @@
-# consolet
-Pixel art in Terminal
+  ____                      _      _   
+ / ___|___  _ __  ___  ___ | | ___| |_ 
+| |   / _ \| '_ \/ __|/ _ \| |/ _ \ __|
+| |__| (_) | | | \__ \ (_) | |  __/ |_ 
+ \____\___/|_| |_|___/\___/|_|\___|\__|
+
+
+Pixel art in terminal
+
+## Features
+Advanced Layer System: Add, delete, rename, reorder, and merge layers. Control the visibility and opacity of each layer independently.
+Onion Skinning: See a semi-transparent version of the previous layer, making it easy to create smooth animations.
+Complete Toolset: Includes a pen, eraser, color picker, fill bucket, and tools to lighten, darken, or blur colors.
+Drawing Aids: Work faster with adjustable pen size, opacity, and shape (circular or square), plus four powerful symmetry modes (vertical, horizontal, and both diagonals).
+Palette Management: Use the default palette, import your own, or generate a new 16-color palette directly from any image file.
+File Operations: Save and load projects in a compressed .consolet format. Export your creations as PNG files, either as a final merged image or as separate files for each layer.
+Mouse and Keyboard Support: Seamlessly switch between mouse and keyboard for drawing, panning, zooming, and UI interaction.
+Command Mode: Access every feature through a powerful command-line interface by pressing :.
+Configuration & Keybindings: Customize almost every aspect of the editor's behavior and remap every key to your liking.
+
 
 ## Controls Cheat Sheet
 

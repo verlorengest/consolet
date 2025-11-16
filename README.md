@@ -1,6 +1,11 @@
 
 ## Pixel art app in terminal                                                                                    
 
+
+<img width="2055" height="1444" alt="image" src="https://github.com/user-attachments/assets/705bd823-d0f6-4459-9072-00863b8f9a81" />
+
+https://www.youtube.com/watch?v=ZMCFYdf-4Js&t=52s
+
 You can launch it in 2 ways:
 Download the release
 Compile from source

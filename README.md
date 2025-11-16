@@ -12,6 +12,7 @@ Open the program by double-clicking on it quickly in windows.
 or
 Right-click and open the context menu, click the Open button.
 
+or click one time with left click of ur mouse, and press enter button in your keyboard.
 
 ## Compile from source
 

@@ -1917,8 +1917,7 @@ fn export_to_png(&mut self, path: Option<String>, scale: u32, transparent: bool)
                 let img = RgbaImage::from_fn(self.canvas_width as u32 * scale, self.canvas_height as u32 * scale, |px, py| {
                     let x = (px / scale) as usize;
                     let y = (py / scale) as usize;
-                    let pixel = self.layers[self.active_layer_index].canvas[y][x];
-
+                    let pixel = self.canvas[y][x];
 
                     if transparent {
                         if pixel.alpha == 0.0 { return Rgba([0, 0, 0, 0]); }

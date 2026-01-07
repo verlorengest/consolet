@@ -2058,6 +2058,7 @@ fn main() -> Result<()> {
 
         disable_raw_mode()?;
         stdout().execute(LeaveAlternateScreen)?.execute(event::DisableMouseCapture)?;
+        terminal.show_cursor()?;
         Ok(())
 }
 

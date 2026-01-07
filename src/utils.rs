@@ -1,4 +1,4 @@
-use crate::{palette, SerializableColor, PaletteFile};
+use crate::{Block, Borders, Clear, PaletteFile, Paragraph, SerializableColor, palette, stdout};
 
 use ratatui::prelude::*;
 use std::io::Result;

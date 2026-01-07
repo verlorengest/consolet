@@ -342,7 +342,7 @@ struct App {
     last_image_palette_source: Option<String>,
     palette_menu_position: PaletteMenuPosition,
     last_centered_canvas_rect: Option<Rect>,
-    layers: Vec<Layer>,
+    layers: VecDeque<Layer>,
     active_layer_index: usize,
     onion_skin_enabled: bool,
     onion_skin_opacity: f32,
@@ -543,12 +543,12 @@ impl App {
 
         App {
             canvas: vec![vec![Pixel::default(); width]; height],
-            layers: vec![Layer {
+            layers: [Layer {
                 name: "Layer 1".to_string(),
                 canvas: vec![vec![Pixel::default(); width]; height],
                 visible: true,
                 opacity: 1.0,
-            }],
+            }].into(),
             active_layer_index: 0,
             canvas_width: width, canvas_height: height,
             cursor_pos: (0, 0),
@@ -676,8 +676,7 @@ impl App {
             visible: true,
             opacity: 1.0,
         };
-        self.layers.push(new_layer);
-        self.active_layer_index = self.layers.len() - 1;
+        self.layers.insert(self.active_layer_index, new_layer);
         self.sync_canvas_from_layers();
         self.status_message = Some((format!("Added {}", self.layers[self.active_layer_index].name), Instant::now()));
     }
@@ -1573,7 +1572,7 @@ fn save_project(&mut self, path: &PathBuf, set_as_current: bool) {
         height: self.canvas_height,
         canvas: self.canvas.clone(),
         palette: current_palette,
-        layers: Some(self.layers.clone()),
+        layers: Some(self.layers.clone().into()),
         active_layer_index: Some(self.active_layer_index),
     };
 
@@ -1614,18 +1613,18 @@ fn load_project(&mut self, path: &PathBuf) {
             self.canvas = project_file.canvas;
             
             if let Some(layers) = project_file.layers {
-                self.layers = layers;
+                self.layers = layers.into();
                 self.active_layer_index = project_file.active_layer_index.unwrap_or(0);
                 if self.active_layer_index >= self.layers.len() {
                     self.active_layer_index = 0;
                 }
             } else {
-                self.layers = vec![Layer {
+                self.layers = [Layer {
                     name: "Layer 1".to_string(),
                     canvas: self.canvas.clone(),
                     visible: true,
                     opacity: 1.0,
-                }];
+                }].into();
                 self.active_layer_index = 0;
             }
             self.sync_canvas_from_layers();
